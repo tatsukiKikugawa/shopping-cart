@@ -37,24 +37,31 @@ while True:
     else:
         selected_ids.append(selected_id)
 
+tax = total_price * 0.0875
+def to_usd(tax):
+    return f"${tax:,.2f}"
 
+tax_included_price = total_price + tax
 
 #
 #INFO DISPLAY / OUTPUT
 #
 
+print("> ---------------------------------")
+print("> GREEN FOODS GROCERY")
+print("> WWW.GREEN-FOODS-GROCERY.COM")
+print("> ---------------------------------")
+print("CHECKOUT AT: ")
+print("> ---------------------------------")
+print("> SELECTED PRODUCTS: ")
+
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0] #< to convert class list to class dict
     total_price = total_price + matching_product["price"]
-    print("SELECTED_PRODUCT: " + matching_product["name"] + " ($" + str(matching_product["price"]) + ")")
+    print(">  ... " + matching_product["name"] + " ($" + str(matching_product["price"]) + ")")
 
 
-
-
-
-
-print("TOTAL PRICE: " + str(total_price))
 
 #A grocery store name of your choice
 #A grocery store phone number and/or website URL and/or address of choice
