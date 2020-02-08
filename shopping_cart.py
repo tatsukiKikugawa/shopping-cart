@@ -1,5 +1,6 @@
 # shopping_cart.py
 
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -37,11 +38,12 @@ while True:
     else:
         selected_ids.append(selected_id)
 
-tax = total_price * 0.0875
-def to_usd(tax):
-    return f"${tax:,.2f}"
 
-tax_included_price = total_price + tax
+#to creat this time setup, I used the website: https://www.programiz.com/python-programming/datetime/current-datetime
+from datetime import datetime
+now = datetime.now()
+now = now.strftime("%d/%m/%Y %H:%M")
+
 
 #
 #INFO DISPLAY / OUTPUT
@@ -51,7 +53,7 @@ print("> ---------------------------------")
 print("> GREEN FOODS GROCERY")
 print("> WWW.GREEN-FOODS-GROCERY.COM")
 print("> ---------------------------------")
-print("CHECKOUT AT: ")
+print("> CHECKOUT AT: " + now)
 print("> ---------------------------------")
 print("> SELECTED PRODUCTS: ")
 
@@ -59,8 +61,18 @@ for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0] #< to convert class list to class dict
     total_price = total_price + matching_product["price"]
-    print(">  ... " + matching_product["name"] + " ($" + str(matching_product["price"]) + ")")
+    print(">  ... " + matching_product["name"] + " (" + "${0:.2f}".format(matching_product["price"]) + ")")
 
+tax = total_price * 0.0875
+tax_included_price = total_price + tax
+
+print("> ---------------------------------")
+print("> SUBTOTAL: " + "${0:.2f}".format(total_price))
+print("> PLUS NYC TAX RARE 8.75%: " + "${0:.2f}".format(tax))
+print("> TOTAL: " + "${0:.2f}".format(tax_included_price))
+print("> ---------------------------------")
+print("> THANKS, SEE YOU AGAIN SOON!")
+print("> ---------------------------------")
 
 
 #A grocery store name of your choice
