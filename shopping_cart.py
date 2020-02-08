@@ -27,11 +27,14 @@ products = [
 #INFO CAPTURE / INPUT
 #
 
-selected_id = input("Please input a product indentifier: ") #> "9" (string)
-matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
-matching_product = matching_products[0] #< to convert class list to class dict
-print("SELECTED PRODUCT: \n ..." + matching_product["name"] + " ($" + str(matching_product["price"]) + ")")
-
+while True:
+    selected_id = input("Please input a product indentifier: ") #< "9" (string)
+    if selected_id == "DONE" or selected_id == "Done" or selected_id == "done":
+        break
+    else:
+        matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+        matching_product = matching_products[0] #< to convert class list to class dict
+        print("SELECTED_PRODUCT: " + matching_product["name"] + " ($" + str(matching_product["price"]) + ")")
 
 
 
