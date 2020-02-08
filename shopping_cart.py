@@ -1,7 +1,5 @@
 # shopping_cart.py
 
-#from pprint import pprint
-
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -25,16 +23,14 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-
-# TODO: write some Python code here to produce the desired output
-
 #
 #INFO CAPTURE / INPUT
 #
 
 selected_id = input("Please input a product indentifier: ") #> "9" (string)
-print(selected_id)
-print(type(selected_id))
+matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
+matching_product = matching_products[0] #< to convert class list to class dict
+print("SELECTED PRODUCT: \n ..." + matching_product["name"] + " ($" + str(matching_product["price"]) + ")")
 
 
 
