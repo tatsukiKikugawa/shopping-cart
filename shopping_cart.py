@@ -35,15 +35,17 @@ while True:
     selected_id = input("Please input a product indentifier: ") #< "9" (string)
     if selected_id == "DONE" or selected_id == "Done" or selected_id == "done":
         break
-    else:
+    elif int(selected_id) >= 1 and int(selected_id) <= 20:
         selected_ids.append(selected_id)
+    else:
+        print("Invalid input. Start it over!")
+        exit()
 
 
 #to creat this time setup, I used the website: https://www.programiz.com/python-programming/datetime/current-datetime
 from datetime import datetime
 now = datetime.now()
 now = now.strftime("%d/%m/%Y %H:%M")
-
 
 #
 #INFO DISPLAY / OUTPUT
@@ -73,46 +75,3 @@ print("> TOTAL: " + "${0:.2f}".format(tax_included_price))
 print("> ---------------------------------")
 print("> THANKS, SEE YOU AGAIN SOON!")
 print("> ---------------------------------")
-
-
-#A grocery store name of your choice
-#A grocery store phone number and/or website URL and/or address of choice
-#The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
-#The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
-#The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
-#The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
-#The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
-#A friendly message thanking the customer and/or encouraging the customer to shop again
-
-
-#(shopping-env)  --->> python shopping_cart.py
-#Please input a product identifier: 1
-#Please input a product identifier: 8
-#Please input a product identifier: 6
-#Please input a product identifier: 8
-#Please input a product identifier: 8
-#Please input a product identifier: 16
-#Please input a product identifier: 12
-#Please input a product identifier: DONE
-#> ---------------------------------
-#> GREEN FOODS GROCERY
-#> WWW.GREEN-FOODS-GROCERY.COM
-#> ---------------------------------
-#> CHECKOUT AT: 2019-06-06 11:31 AM
-#> ---------------------------------
-#> SELECTED PRODUCTS:
-#>  ... Chocolate Sandwich Cookies ($3.50)
-#>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
-#>  ... Dry Nose Oil ($21.99)
-#>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
-#>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
-#>  ... Mint Chocolate Flavored Syrup ($4.50)
-#>  ... Chocolate Fudge Layer Cake ($18.50)
-#> ---------------------------------
-#> SUBTOTAL: $61.24
-#> TAX: $5.35
-#> TOTAL: $66.59
-#> ---------------------------------
-#> THANKS, SEE YOU AGAIN SOON!
-#> ---------------------------------
-
